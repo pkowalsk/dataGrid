@@ -2,6 +2,7 @@ import React from 'react';
 import CompanyRow from './companyRow';
 import HeaderRow from './HeaderRow';
 import AddRow from './AddRow';
+import Header from '../common/Header';
 import appData from '../../assets/data.txt'
 
 class HomePage extends React.Component {
@@ -214,6 +215,8 @@ class HomePage extends React.Component {
 
       return (
           <div>
+            <Header />
+
             <h1>ServiceNow Exercise</h1>
 
             <div className={this.state.showAddRow ? 'addRowIcon hidden' : 'addRowIcon'} onClick={this.showRow} aria-label="Show Add New Row"></div>
