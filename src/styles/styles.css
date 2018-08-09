@@ -1,0 +1,158 @@
+#app {
+    font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #4d4d4d;
+    min-width: 550px;
+    max-width: 850px;
+    /*margin: 0 auto;*/
+    padding-bottom: 20px;
+}
+
+nav {
+    padding-top: 20px;
+}
+
+.dataTable {
+  border:1px solid red;
+}
+
+.headerCell {
+  width: 150px;
+  /*position: absolute;*/
+  background: #ccc;
+  border: 1px solid #888;
+  border-left:0px;
+  border-right:0px;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  max-width: 200px;
+  height: 50px;
+  cursor: pointer;
+  resize:horizontal;
+  overflow: auto;
+}
+
+.staticHeaderCell {
+  width: 150px;
+  background: #ccc;
+  border: 1px solid #888;
+  border-right:0px;
+  text-align: center;
+  padding: 10px;
+  height: 50px;
+}
+
+.headerCell:first-child {
+  border-left: 1px solid #888;
+}
+
+.headerGroup:last-child .headerCell{
+  border-right: 1px solid #888;
+}
+
+
+.dataCell {
+  width: 151px;
+  /*position: absolute;*/
+  display: table-cell;
+  border-bottom: 1px solid #ccc;
+  border-left: 0px;
+  border-top: 0px;
+  text-align: center;
+  padding: 5px;
+  max-width: 200px;
+  height:30px;
+}
+
+.innerDataCell {
+  height:30px;
+  overflow: scroll;
+}
+
+.dataRow {
+  display: table-row;
+}
+
+.dataRow:nth-child(even) {
+  background: #eee;
+}
+
+.dataRow .dataCell:first-child {
+  /*border-left: 1px solid black;*/
+  cursor: default;
+}
+
+.dataRow .dataCell:last-child {
+  width: 150px;
+}
+
+.headerGroup {
+  width: 150px;
+  display: table-cell;
+}
+
+.sortedAscCol {
+  background-image: url("../assets/img/sort-up-solid.svg");
+  background-repeat: no-repeat;
+  float: right;
+  width: 20px;
+  height: 20px;
+}
+
+.sortedDescCol {
+  background-image: url("../assets/img/sort-down-solid.svg");
+  background-repeat: no-repeat;
+  float: right;
+  width: 20px;
+  height: 20px;
+}
+
+
+.headerRow {
+  grid-area: header;
+}
+
+.dataPanel {
+  max-height: 300px;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "header headerRow" "content dataRows";
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  width: 75vw;
+}
+
+.dataRows {
+  grid-area: content;
+  overflow:auto;
+}
+
+.addRowIcon {
+  background-image: url("../assets/img/text-plus-icon.png");
+  background-repeat: no-repeat;
+  background-size: 20px;
+  padding: 15px;
+  width:15px;
+  cursor: pointer;
+}
+
+.hideRowIcon {
+  background-image: url("../assets/img/minus-4-24.png");
+  background-repeat: no-repeat;
+  background-size: 20px;
+  padding: 15px;
+  width:15px;
+  cursor: pointer;
+}
+
+.deleteIcon {
+  background-image: url("../assets/img/x-mark-3-24.png");
+  background-repeat: no-repeat;
+  background-size: 20px;
+  padding: 15px;
+  width:15px;
+  cursor: pointer;
+  background-position-y: bottom;
+}
