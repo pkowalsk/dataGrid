@@ -1,4 +1,5 @@
 import React from 'react';
+
 import CompanyRow from './companyRow';
 import HeaderRow from './HeaderRow';
 import AddRow from './AddRow';

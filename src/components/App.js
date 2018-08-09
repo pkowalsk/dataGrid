@@ -8,13 +8,11 @@ class App extends React.Component {
 	render() {
       return (
           <div className="container-fluid">
-            <div>
 			<Switch>
 				<Route exact path="/" component={LoginPage} />
 				<Route exact path="/grid/:userName" component={HomePage} />
 				<Route component={LoginPage} />
 			</Switch>
-			</div>
           </div>
       );
   }

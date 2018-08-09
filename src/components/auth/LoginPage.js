@@ -8,7 +8,9 @@ class LoginPage extends React.Component {
         this.state = {
             loggedIn: false,
             user: '',
-            error: false
+            error: false,
+            password: '',
+            formSubmitted: false
         };
 
         this.login = this.login.bind(this);
@@ -19,15 +21,43 @@ class LoginPage extends React.Component {
         let userName = this.refs['username'].value,
             password = this.refs['password'].value;
 
-        this.setState({ error: false });
+        this.setState({ error: false, password, user: userName, formSubmitted:true });
 
-        if(userName.length == 0 || password.length == 0){
+        if(userName.length === 0 || password.length === 0){
             this.setState({ error: true });
+        } else {
+            this.setState({ loggedIn: true, user: userName  });
+            this.props.history.push(`/grid/${userName}`);
         }
-
-        this.setState({ loggedIn: true, user: userName  });
-        this.props.history.push(`/grid/${userName}`);
     }
+
+    /*userErrorClass(){
+        if(this.state.formSubmitted){
+            let userName = this.state.user;
+
+            if(userName.length > 0 && !this.state.error) {
+                return 'form-control';
+            } else if(userName.length === 0 && this.state.error) {
+                return 'form-control is-invalid';
+            }
+        } else {
+            return 'form-control';
+        }
+    }
+
+    passwordErrorClass(){
+        if(this.state.formSubmitted){
+            let password = this.state.password;
+
+            if(password.length > 0 && !this.state.error) {
+                return 'form-control';
+            } else if(password.length === 0 && this.state.error) {
+                return 'form-control is-invalid';
+            }
+        } else {
+            return 'form-control';
+        }
+    }*/
 
     showError(){
         if(!this.state.error){
@@ -48,12 +78,17 @@ class LoginPage extends React.Component {
 
             <div className="row">
                 <div className="col-md-6">
-                    <input type="text" className="formInput" placeholder="Username" ref="username" />
+                    <div className="input-group" style={{marginRight: "auto", marginLeft: "auto"}}>
+                        <input type="text" ref="username" id="username" placeholder="Username" aria-label="Enter a Username"  />
+                    </div>
                 </div>
             </div>
+
             <div className="row">
                 <div className="col-md-6">
-                    <input type="password" className="formInput" placeholder="Password" ref="password" />
+                    <div className="input-group" style={{marginRight: "auto", marginLeft: "auto"}}>
+                        <input type="text" ref="password" id="password" placeholder="Password" aria-label="Enter a Password"  />
+                    </div>
                 </div>
             </div>
             <div className="row">
